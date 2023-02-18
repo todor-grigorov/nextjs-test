@@ -1,5 +1,11 @@
-name: deploy website
-on: [push, pull_request]
+name: preview deploy website
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +22,6 @@ jobs:
       - name: Build
         run: npm run build
 
-  deploy:
   Deploy-Preview:
     runs-on: ubuntu-latest
     steps:
