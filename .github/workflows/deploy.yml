@@ -15,11 +15,10 @@ jobs:
         run: npm install
       - name: Build
         env:
-          # VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
           VERCEL_ORGANIZATION_ID: ${{ secrets.VERCEL_ORGANIZATION_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          # VERCEL_SEARCH_HUB: ${{ secrets.VERCEL_SEARCH_HUB }}
-          # VERCEL_PIPELINE: ${{ secrets.VERCEL_PIPELINE }}
+          VERCEL_SEARCH_HUB: ${{ secrets.VERCEL_SEARCH_HUB }}
+          VERCEL_PIPELINE: ${{ secrets.VERCEL_PIPELINE }}
         run: npm run build
 
   deploy:
@@ -40,11 +39,11 @@ jobs:
 
       - uses: amondnet/vercel-action@v25
         with:
-          # vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/main'] }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-org-id: ${{ secrets.VERCEL_ORGANIZATION_ID}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
-          scope: ${{ secrets.VERCEL_ORG_ID}}
+          scope: ${{ secrets.VERCEL_ORGANIZATION_ID}}
           working-directory: ./
 
       - name: update deployment status
