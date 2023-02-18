@@ -17,7 +17,7 @@ jobs:
         env:
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
           VERCEL_ORGANIZATION_ID: ${{ secrets.VERCEL_ORGANIZATION_ID }}
-          VERCEL_SEARCH_HUB: ${{ secrets.VERCEL_SEARCH_HUB }}
+          # VERCEL_SEARCH_HUB: ${{ secrets.VERCEL_SEARCH_HUB }}
           VERCEL_PIPELINE: ${{ secrets.VERCEL_PIPELINE }}
         run: npm run build
 
