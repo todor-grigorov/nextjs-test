@@ -17,8 +17,8 @@ cypress-run:
         uses: cypress-io/github-action@v3
         with: 
           build: npm run build
-          start: npm start
-          
+          start: npm run dev
+
   build:
     runs-on: ubuntu-latest
     steps:
