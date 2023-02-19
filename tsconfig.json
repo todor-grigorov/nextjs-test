@@ -16,9 +16,18 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "./cypress/tsconfig.json",
+    "__tests__/index.test.jsx",
+    "./node_modules/cypress",
+    "**/*"
+  ],
+  "exclude": ["node_modules", "cypress"]
 }
