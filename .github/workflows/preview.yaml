@@ -7,7 +7,7 @@ on:
     branches-ignore:
       - main
 jobs:
-cypress-run:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
